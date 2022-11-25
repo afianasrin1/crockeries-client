@@ -10,7 +10,7 @@ const Navbar = () => {
       .then(() => {})
       .catch((err) => console.log(err));
   };
-
+  //new
   const menuItems = (
     <React.Fragment>
       <Link to="/" className="inline-flex items-center mr-8">
