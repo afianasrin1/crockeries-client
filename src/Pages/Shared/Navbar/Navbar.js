@@ -10,12 +10,9 @@ const Navbar = () => {
       .then(() => {})
       .catch((err) => console.log(err));
   };
-  //new
+
   const menuItems = (
     <React.Fragment>
-      <Link to="/" className="inline-flex items-center mr-8">
-        <img className="w-10  rounded-full" src={CrockeriesCollection} alt="" />
-      </Link>
       <li>
         <Link to="/">Home</Link>
       </li>
@@ -67,8 +64,12 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
-          CrockeriesCollection
+        <Link to="/" className="inline-flex items-center mr-8">
+          <img
+            className="w-20  rounded-full"
+            src={CrockeriesCollection}
+            alt=""
+          />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

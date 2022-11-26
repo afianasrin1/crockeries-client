@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate, useRouteError } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
-import Error01 from "../../../assets/images/Error01.jpg";
+import Error from "../../../assets/images/Error.jpg";
 const ErrorPage = () => {
   const error = useRouteError();
   const { logOut } = useContext(AuthContext);
@@ -16,23 +16,23 @@ const ErrorPage = () => {
   return (
     <section
       style={{
-        background: `url(${Error01})`,
+        background: `url(${Error})`,
         backgroundSize: "cover",
       }}
       className="p-10"
     >
-      <div className="flex items-baseline h-screen p-16">
-        <div className="container flex flex-col items-center justify-center px-5 mx-auto my-12">
-          <h1 className="text-red-900 text-xl font-bold mb-10">
+      <div className="flex items-center justify-center h-screen p-16">
+        <div className="container flex flex-col items-end justify-end px-5 mx-auto my-12">
+          <h1 className="text-red-900 text-2xl  font-bold mb-10">
             Sorry, an unexpected error has occurred.
           </h1>
-          <p className="text-red-600 text-4xl mb-10">
+          <p className="text-red-600 text-4xl  mb-10">
             <i>{error.statusText || error.message}</i>
           </p>
 
           <div className="max-w-md text-center mb-10">
             <Link
-              to="/login"
+              to="/"
               className="px-8 py-3 font-semibold rounded bg-white-200 text-gray-900"
             >
               <button
@@ -42,7 +42,7 @@ const ErrorPage = () => {
                 Sign out &
                 <span className="font-normal text-sm lowercase">
                   {" "}
-                  back to login page
+                  back to Home
                 </span>
               </button>
             </Link>
