@@ -1,10 +1,10 @@
-# BengalFurniture
+# Crockeries Gallery
 
-# Welcome to Our BengalFurniture eCommerce Website
+# Welcome to Our Crockeries Gallery E-commerce Website
 
-## BengalFurniture Live WebSite Link: https://regal-furniture-ab3ef.web.app
+## Crockeries Gallery Live WebSite Link: 
 
-BengalFurniture is a cloud-enabled, mobile-ready
+Crockeries Gallery is a cloud-enabled, mobile-ready
 In this website ReactJS-powered Tailwind Css are used.
 
 - Click On THE LINK
@@ -13,7 +13,7 @@ In this website ReactJS-powered Tailwind Css are used.
 
 ## Description
 
-You can add your favorite food products or review and also share with your friends😁!!
+You can add your favorite Crockeries products or review and also share with your friends😁!!
 Dev Goal: Review...
 
 ### Packages:
@@ -25,7 +25,9 @@ Dev Goal: Review...
 5. React Icons.
 6. Context Api.
 7. React hot toast.
-8. And etc.
+8. PhotoViewer
+9. aois
+10. And etc.
 
 ### Some features of my project:
 
@@ -37,7 +39,7 @@ Dev Goal: Review...
 
 ## How To Use
 
-Just Click the link 👉 https://regal-furniture-ab3ef.web.app .
+Just Click the link 👉
 
 ---
 
