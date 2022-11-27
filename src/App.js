@@ -1,15 +1,13 @@
-import { Toaster } from 'react-hot-toast';
-import { RouterProvider } from 'react-router-dom';
-import './App.css';
-import router from './Routes/Routes/Routes';
-
+import { RouterProvider } from "react-router-dom";
+import router from "./Router/Routes";
+import "aos/dist/aos.css";
 function App() {
-  return (
-    <div className='max-w-[1440px] mx-auto'>
-      <RouterProvider router={router}></RouterProvider>
-      <Toaster></Toaster>
-    </div>
-  );
+	return (
+		<div>
+			{" "}
+			<RouterProvider router={router} />
+		</div>
+	);
 }
 
 export default App;

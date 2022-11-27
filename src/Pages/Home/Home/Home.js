@@ -1,18 +1,18 @@
 import React from "react";
-import Slider from "../Banner/Slider";
-import useTitle from "../../../hooks/Title";
-import HomeCategories from "./HomeCategories";
+import useTitle from "../../../Hooks/useTitle";
+import Banner from "../Banner/Banner";
 import ContactUs from "../ContactUs/ContactUs";
+import Gallery from "../Gallery/Gallery";
+import HomeCategories from "../HomeCategories/HomeCategories";
 
 const Home = () => {
   useTitle("Home");
   return (
-    <div className="mx-5">
-      <div>
-        <Slider />
-        <HomeCategories />
-        <ContactUs />
-      </div>
+    <div>
+      <Banner />
+      <HomeCategories />
+      <Gallery />
+      <ContactUs />
     </div>
   );
 };
