@@ -20,22 +20,33 @@ const Navbar = () => {
         <Link to="/blog">Blog</Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/contactUs">Contact Us</Link>
       </li>
-      {user?.uid ? (
-        <>
+
+      <ul>
+        {user?.email ? (
+          <div className="flex gap-2 items-center ">
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <button onClick={handleLogOut}>Sign out</button>
+            </li>
+            <div className="">
+              <img
+                title={user?.displayName}
+                className="sm:w-12  sm:h-12 w-10 h-10  cursor-pointer rounded-full"
+                src={user?.photoURL}
+                alt=""
+              />{" "}
+            </div>
+          </div>
+        ) : (
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/login">Login</Link>
           </li>
-          <li>
-            <button onClick={handleLogOut}>Sign out</button>
-          </li>
-        </>
-      ) : (
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      )}
+        )}
+      </ul>
     </React.Fragment>
   );
 

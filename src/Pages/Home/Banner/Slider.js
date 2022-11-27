@@ -1,12 +1,14 @@
 import React from "react";
-import img1 from "../../../assets/images/slider1.avif";
-import img2 from "../../../assets/slider2.jpg";
-import img3 from "../../../assets/slider3.jpg";
-import img4 from "../../../assets/slider4.jpg";
-import img5 from "../../../assets/slider5.jpg";
-import img6 from "../../../assets/slider6.jpg";
-import img7 from "../../../assets/slider7.jpg";
-import img8 from "../../../assets/slider8.jpg";
+import img1 from "../../../assets/images/slider1.jpg";
+import img2 from "../../../assets/images/slider2.jpg";
+import img3 from "../../../assets/images/slider3.jpg";
+import img4 from "../../../assets/images/slider4.jpg";
+import img5 from "../../../assets/images/slider5.jpg";
+import img6 from "../../../assets/images/slider6.jpg";
+import img7 from "../../../assets/images/slider7.jpg";
+import img8 from "../../../assets/images/slider8.jpg";
+import img9 from "../../../assets/images/slider9.jpg";
+
 import SliderItems from "./SliderItems";
 
 const Slider = () => {
@@ -57,6 +59,12 @@ const Slider = () => {
       image: img8,
       prev: 7,
       id: 8,
+      next: 9,
+    },
+    {
+      image: img9,
+      prev: 7,
+      id: 9,
       next: 1,
     },
   ];
