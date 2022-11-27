@@ -10,7 +10,7 @@ const Root = () => {
       <div className="lg:w-4/5 px-3 mx-auto">
         <Outlet />
       </div>
-      {/* footer */}
+
       <Footer />
     </div>
   );

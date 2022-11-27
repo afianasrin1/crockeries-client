@@ -12,10 +12,10 @@ import MyAllProducts from "../Pages/Dashboard/MyAllProducts/MyAllProducts";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import ReportedProducts from "../Pages/Dashboard/ReportedProducts/ReportedProducts";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import Furnitures from "../Pages/Furnitures/Furnitures";
-import SingleFurniture from "../Pages/Furnitures/SingleFurniture";
+import Crockeries from "../Pages/Crockeries/Crockeries";
+import SingleFurniture from "../Pages/Crockeries/SingleCrockeries";
 import Home from "../Pages/Home/Home/Home";
-import SignIn from "../Pages/Login/SignIn/Signin";
+import SignIn from "../Pages/Login/SignIn/SignIn";
 import SignUp from "../Pages/Login/SignUp/Signup";
 import AdminRoute from "./AdminRoute";
 import BuyerRoute from "./BuyerRoute";
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/home", element: <Home /> },
       {
-        path: "/furnitures/:id",
-        element: <Furnitures />,
+        path: "/crockeries/:id",
+        element: <Crockeries />,
         loader: async ({ params }) =>
           fetch(
             `${process.env.REACT_APP_ApiUrl}categoriesProducts/${params.id}`
@@ -42,11 +42,11 @@ const router = createBrowserRouter([
         path: "/singleFurniture/:id",
         element: <SingleFurniture />,
         loader: async ({ params }) =>
-          fetch(`${process.env.REACT_APP_ApiUrl}furnitures/${params.id}`),
+          fetch(`${process.env.REACT_APP_ApiUrl}crockeries/${params.id}`),
       },
       { path: "/blog", element: <Blog /> },
       { path: "/signup", element: <SignUp /> },
-      { path: "/signin", element: <SignIn /> },
+      { path: "/signIn", element: <SignIn /> },
     ],
   },
   {

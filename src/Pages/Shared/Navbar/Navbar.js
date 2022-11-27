@@ -187,7 +187,7 @@ const Navbar = () => {
                           <>
                             <li>
                               <Link
-                                to="/signin"
+                                to="/signIn"
                                 className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                 aria-label="Sign up"
                                 title="Sign up"
@@ -226,7 +226,7 @@ const Navbar = () => {
                 <>
                   <li>
                     <NavLink
-                      to="signin"
+                      to="signIn"
                       className="inline-flex hidden lg:block items-center justify-center py-2 font-semibold px-6 tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                       aria-label="Sign In"
                       title="Sign In"
