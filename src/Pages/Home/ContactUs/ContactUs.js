@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaRocketchat, FaWhatsapp } from "react-icons/fa";
 import useTitle from "../../../hooks/useTitle";
 const ContactUs = () => {
-  useTitle("ContactUs");
+  useTitle("Home");
   return (
     <div className="">
       <h1 className="text-2xl text-center font-bold text-yellow-900 pt-8">
@@ -33,15 +33,6 @@ const ContactUs = () => {
                 <FaRocketchat /> Live Chat
               </button>
             </Link>
-            {/* <Link
-              target={"_blank"}
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/"
-              title="Instagram"
-              className=" text-xl"
-            >
-              <FaFacebook />
-            </Link> */}
           </div>
         </div>
         <form className="space-y-6 ng-untouched ng-pristine ng-valid">
@@ -98,6 +89,12 @@ const ContactUs = () => {
             Send Message
           </button>
         </form>
+      </div>
+      <div className="text-2xl text-center font-bold text-yellow-900 pt-8 ">
+        <h1>If you want to know our story click this button </h1>
+        <Link to="/aboutUs">
+          <button className=" btn btn-outline hover:btn-info">About Us</button>
+        </Link>
       </div>
     </div>
   );
