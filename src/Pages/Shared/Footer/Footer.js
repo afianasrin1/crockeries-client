@@ -1,133 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import logo from "../../../Pages/assets/logo.jpg";
-const Footer = () => {
+
+import footer1 from "../../assets/nav&footer/footer1.png";
+import CrockeriesCollection from "../../assets/nav&footer/CrockeriesCollection.jpg";
+const Footers = () => {
   return (
     <div className="">
-      <footer className="px-4 divide-y  ">
+      <footer
+        style={{
+          background: `url(${footer1})`,
+          backgroundSize: "cover",
+        }}
+        className="px-4 "
+      >
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-          <div className="lg:w-1/3 flex justify-center">
-            <Link
-              to="/"
-              aria-label="Resale Furniture"
-              title="Resale Furniture"
-              className="inline-flex items-center"
-            >
-              <img className="sm:w-10 w-8" src={logo} alt="" />
-              <span className="ml-2 sm:text-2xl text-md font-bold tracking-wide">
-                ResaleFurniture
-              </span>
+          <div className="lg:w-1/2 flex justify-center">
+            <Link to="/" className="inline-flex items-center mr-8">
+              <img
+                className="w-32 rounded-full"
+                src={CrockeriesCollection}
+                alt=""
+              />
             </Link>
           </div>
-          <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
-            <div className="space-y-3">
-              <h3 className="tracking-wide uppercase">Product</h3>
-              <ul className="space-y-1">
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Integrations
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    FAQ
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-3">
-              <h3 className="tracking-wide uppercase">Company</h3>
-              <ul className="space-y-1">
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Terms of Service
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-3">
-              <h3 className="uppercase">Developers</h3>
-              <ul className="space-y-1">
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Public API
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#">
-                    Guides
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-3">
-              <div className="uppercase">Social media</div>
-              <div className="flex justify-start space-x-3">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  title="Facebook"
-                  className="text-xl"
-                >
-                  <FaFacebook />
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  title="Twitter"
-                  className="text-xl"
-                >
-                  <FaTwitter />
-                </a>
-                <Link
-                  target={"_blank"}
-                  rel="noopener noreferrer"
-                  href="#"
-                  title="Instagram"
-                  className=" text-xl"
-                >
-                  <FaInstagram />
-                </Link>
-              </div>
+
+          <div className="grid grid-cols-3 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-2 sm:pl-20">
+            <div>
+              <h1 className="text-xl text-yellow-900"> Registered Office:</h1>
+              <p className="text-sm text-justify text-gray">
+                Crockeries gallery Ltd.| c-47, 1st Floor, Middle Circle,
+                Connaught Place, Dhaka-1202, Bangladesh, Support-729006| CIN:
+                U27205DL20 Crockeries gallery Ltd. is ISO 2702 Compliance
+                Certified. Person who may be contacted in case of any compliance
+                related queries or grievances :imad (imad@gmail.com) ** All
+                product names, logos, and brands are property of their
+                respective owners. All company, product and service names used
+                in this website are for identification purposes only. Use of
+                these names, logos, and brands does not imply endorsement.
+              </p>
             </div>
           </div>
         </div>
         <div className="py-6 text-sm text-center">
-          © 2022 All rights reserved at{" "}
-          <span
-            title="if you want to know more info please visit here 👉🏿  https://web.programming-hero.com"
-            className="text-red-500 font-bold italic"
-          >
-            <a target={"_blank"} href="https://web.programming-hero.com">
-              Programming-Hero{" "}
-            </a>
-          </span>{" "}
-          Student.
+          Copyright © 2022 Crockeries Gallery Ltd All right reserved.
         </div>
       </footer>
     </div>
   );
 };
 
-export default Footer;
+export default Footers;

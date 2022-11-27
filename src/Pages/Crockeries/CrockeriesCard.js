@@ -3,7 +3,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { GoReport, GoLocation } from "react-icons/go";
 import { FiClock } from "react-icons/fi";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import badge from "../../Pages/assets/icons/verified.png";
+import verified from "../../Pages/assets/nav&footer/verified.png";
 const CrockeriesCard = ({ crockerie, setSelectOrder }) => {
   const {
     color,
@@ -74,7 +74,7 @@ const CrockeriesCard = ({ crockerie, setSelectOrder }) => {
                 <img
                   title="This Seller is Verified"
                   className="absolute w-4 h-4 top-0 -right-1  rounded-full"
-                  src={badge}
+                  src={verified}
                   alt=""
                 />
               )}

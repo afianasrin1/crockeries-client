@@ -90,7 +90,7 @@ const ContactUs = () => {
           </button>
         </form>
       </div>
-      <div className="text-2xl text-center font-bold text-yellow-900 pt-8 ">
+      <div className="text-2xl text-center font-bold text-yellow-900 pb-6 pt-4 ">
         <h1>If you want to know our story click this button </h1>
         <Link to="/aboutUs">
           <button className=" btn btn-outline hover:btn-info">About Us</button>

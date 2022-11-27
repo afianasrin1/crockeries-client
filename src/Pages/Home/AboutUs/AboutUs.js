@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import about1 from "../../assets/imgAbout/about1.png";
 import about2 from "../../assets/imgAbout/about2.png";
 import useTitle from "../../../hooks/useTitle";
