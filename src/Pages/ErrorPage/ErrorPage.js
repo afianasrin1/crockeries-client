@@ -39,7 +39,7 @@ const ErrorPage = () => {
                 onClick={handleLogOut}
                 className="btn btn-error hover:btn-success text-3xl"
               >
-                Sign out &
+                Log Out &
                 <span className="font-normal text-sm lowercase">
                   {" "}
                   back to Home
