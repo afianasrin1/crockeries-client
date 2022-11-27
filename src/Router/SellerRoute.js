@@ -13,7 +13,7 @@ const SellerRoute = ({ children }) => {
   if (user?.email && isSeller) {
     return children;
   }
-  return <Navigate to="/signin" state={{ from: location }} replace />;
+  return <Navigate to="/signIn" state={{ from: location }} replace />;
 };
 
 export default SellerRoute;
