@@ -3,16 +3,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash, FaTimes } from "react-icons/fa";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import Swal from "sweetalert2";
 import useTitle from "../../../hooks/useTitle";
 import { useForm } from "react-hook-form";
 import useToken from "../../../hooks/useToken";
 import axios from "axios";
+import toast from "react-hot-toast";
 const SignIn = () => {
   // show password state
   const [show, setShow] = useState(false);
   const [showPassword, setShowPassword] = useState("password");
-  const [loginError, setLoginError] = useState("");
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const [token] = useToken(loginUserEmail);
 
@@ -26,13 +25,14 @@ const SignIn = () => {
 
   const { continueWithGoogle, setLoading, logInWithEmailAndPassword } =
     useContext(AuthContext);
-  useTitle("SignIn");
+  useTitle("Sign In");
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
   if (token) {
     setLoading(false);
+
     navigate(from, { replace: true });
   }
   // sign in with email and password
@@ -49,6 +49,7 @@ const SignIn = () => {
           .then((res) => {
             if (res.data.acknowledged) {
               setLoginUserEmail(user?.email);
+              toast.success("Login Successful", { duration: 1500 });
             }
           })
           .catch((err) => {
@@ -66,6 +67,7 @@ const SignIn = () => {
   const signUpWithGoogle = () => {
     continueWithGoogle()
       .then((result) => {
+        toast.success("Sign In Successful", { duration: 1500 });
         const user = result.user;
         axios
           .post(`${process.env.REACT_APP_ApiUrl}users`, {

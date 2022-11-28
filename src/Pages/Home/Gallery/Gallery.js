@@ -78,7 +78,9 @@ const Gallery = () => {
   ];
   return (
     <section className="pb-12 border-b border-gray-300 pt-5">
-      <h1 className="sm:text-3xl text-xl font-semibold pl-4 pb-6 ">Gallery</h1>
+      <h1 className="sm:text-3xl text-xl font-semibold pl-4 pb-6 ">
+        Crockeries-Gallery
+      </h1>
 
       <PhotoAlbum layout="columns" photos={photos} />
     </section>

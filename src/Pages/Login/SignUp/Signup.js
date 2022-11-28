@@ -4,13 +4,12 @@ import { FcGoogle } from "react-icons/fc";
 import { RiImageAddFill } from "react-icons/ri";
 import { FaEye, FaEyeSlash, FaTimes } from "react-icons/fa";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import Swal from "sweetalert2";
 import useTitle from "../../../hooks/useTitle";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import useToken from "../../../hooks/useToken";
+import toast from "react-hot-toast";
 const SignUp = () => {
-  const [signUpError, setSignUpError] = useState("");
   const [signUpUserEmail, setSignUpUserEmail] = useState("");
   const [token] = useToken(signUpUserEmail);
   // terms and conditions state
@@ -43,6 +42,7 @@ const SignUp = () => {
   const signUpWithGoogle = () => {
     continueWithGoogle()
       .then((result) => {
+        toast.success("Sign In Account Successfully", { duration: 2000 });
         const user = result.user;
         axios
           .post(`${process.env.REACT_APP_ApiUrl}users`, {
@@ -71,6 +71,7 @@ const SignUp = () => {
   // create user
 
   const createUser = (data) => {
+    setLoading(true);
     const formData = new FormData();
     formData.append("image", data.image[0]);
     fetch(
@@ -95,6 +96,9 @@ const SignUp = () => {
                 .then((res) => {
                   if (res.data.acknowledged) {
                     setSignUpUserEmail(user?.email);
+                    toast.success("Account Created Successful", {
+                      duration: 1500,
+                    });
                   }
                 })
                 .catch((err) => {
@@ -110,8 +114,7 @@ const SignUp = () => {
       });
   };
 
-  useTitle("SignUp");
-
+  useTitle("Sign Up");
   return (
     <div>
       <section>
@@ -129,14 +132,14 @@ const SignUp = () => {
                   .replaceAll(")", "")}
               </p>
             )}
-            <div className="p-6 pt-2 space-y-4 md:space-y-6 ">
+            <div className="p-6 pt-2 ">
               <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                 Sign Up
               </h1>
 
               <form
                 onSubmit={handleSubmit(createUser)}
-                className="space-y-4 md:space-y-6"
+                className="space-y-2 md:space-y-3"
               >
                 <div>
                   <label
@@ -266,16 +269,18 @@ const SignUp = () => {
                         </label>
                       </>
                     }
+
+                    <input
+                      type="file"
+                      name="image"
+                      accept="image/*"
+                      id="photo"
+                      hidden
+                      {...register("image", { required: "Photo is required" })}
+                    />
                   </div>
-                  <input
-                    type="file"
-                    name="image"
-                    accept="image/*"
-                    id="photo"
-                    {...register("image", { required: "Photo is required" })}
-                  />
                   {errors.image && (
-                    <p className="text-red-500 font-semibold flex items-center gap-1 mt-1">
+                    <p className="text-red-500 font-semibold flex flex-col items-center gap-1 mt-1">
                       <FaTimes /> {errors.image?.message}
                     </p>
                   )}
@@ -324,18 +329,14 @@ const SignUp = () => {
                 <p className="text-sm font-light text-gray-500-400">
                   Already have an account?{" "}
                   <Link
-                    to="/signin"
+                    to="/signIn"
                     className="font-medium   hover:underline  "
                   >
-                    Login here
+                    Login
                   </Link>
                 </p>
               </form>
-              <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-400 before:mt-0.5 after:flex-1 after:border-t after:border-gray-400 after:mt-0.5">
-                <p className="text-center text-gray-300  font-bold mx-4 mb-0">
-                  Or
-                </p>
-              </div>
+              <p className="text-center  divider text-gray-300 font-bold">Or</p>
               <div>
                 <button
                   onClick={signUpWithGoogle}
