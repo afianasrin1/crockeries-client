@@ -39,7 +39,7 @@ Dev Goal: Review...
 
 ## How To Use
 
-Just Click the link 👉
+Just Click the link -
 
 ---
 
@@ -51,3 +51,8 @@ Install the dependencies and devDependencies and start the server.
 
 npm start
 npm run build
+
+Important ------------
+adminEmail: admin@gmail.com
+
+adminPassword:12AS@#as
