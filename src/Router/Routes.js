@@ -18,7 +18,7 @@ import Home from "../Pages/Home/Home/Home";
 import SignIn from "../Pages/Login/SignIn/SignIn";
 import SignUp from "../Pages/Login/SignUp/Signup";
 import AdminRoute from "./AdminRoute";
-import BuyerRoute from "./BuyerRoute";
+
 import PrivateRouter from "./PrivateRouter";
 import SellerRoute from "./SellerRoute";
 import AboutUs from "../Pages/Home/AboutUs/AboutUs";
@@ -31,20 +31,26 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/home", element: <Home /> },
+
       {
         path: "/crockeries/:id",
-        element: <Crockeries />,
+        element: (
+          <PrivateRouter>
+            <Crockeries />
+          </PrivateRouter>
+        ),
         loader: async ({ params }) =>
           fetch(
             `${process.env.REACT_APP_ApiUrl}categoriesProducts/${params.id}`
           ),
       },
       {
-        path: "/singleCrockeries/:id",
+        path: "/singleFurniture/:id",
         element: <SingleCrockeries />,
         loader: async ({ params }) =>
           fetch(`${process.env.REACT_APP_ApiUrl}crockeries/${params.id}`),
       },
+
       { path: "/blog", element: <Blog /> },
       { path: "/signup", element: <SignUp /> },
       { path: "/signIn", element: <SignIn /> },
@@ -59,14 +65,8 @@ const router = createBrowserRouter([
       </PrivateRouter>
     ),
     children: [
-      {
-        path: "/dashboard/myOrders",
-        element: (
-          <BuyerRoute>
-            <MyOrders />{" "}
-          </BuyerRoute>
-        ),
-      },
+      { path: "/dashboard/", element: <MyOrders /> },
+      { path: "/dashboard/", element: <MyOrders /> },
       {
         path: "/dashboard/manageSellers",
         element: (
@@ -123,6 +123,7 @@ const router = createBrowserRouter([
           </SellerRoute>
         ),
       },
+      { path: "/dashboard/", element: <MyOrders /> },
       {
         path: "/dashboard/myAllProducts",
         element: (

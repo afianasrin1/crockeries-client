@@ -49,7 +49,7 @@ const SignIn = () => {
           .then((res) => {
             if (res.data.acknowledged) {
               setLoginUserEmail(user?.email);
-              toast.success("Login Successful", { duration: 1500 });
+              toast.success("Login Successful", { duration: 500 });
             }
           })
           .catch((err) => {
@@ -67,7 +67,7 @@ const SignIn = () => {
   const signUpWithGoogle = () => {
     continueWithGoogle()
       .then((result) => {
-        toast.success("Sign In Successful", { duration: 1500 });
+        toast.success("Sign In Successful", { duration: 500 });
         const user = result.user;
         axios
           .post(`${process.env.REACT_APP_ApiUrl}users`, {
