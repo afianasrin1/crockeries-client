@@ -24,23 +24,7 @@ const Navbar = () => {
                 <FaBars className="text-xl mb-1" />
               )}
             </label>
-            {/* <div className="lg:w-0 w-full">
-              <Link
-                to="/"
-                aria-label="Crockeries Gallery"
-                title="Crockeries Gallery"
-                className="inline-flex items-center"
-              >
-                <img
-                  className="sm:w-20 w-8"
-                  src={CrockeriesCollection}
-                  alt=""
-                />
-                <span className="ml-2 sm:block hidden sm:text-xl font-bold tracking-wide">
-                  Crockeries Gallery
-                </span>
-              </Link>
-            </div> */}
+
             <Link to="/" className="inline-flex items-center mr-8">
               <img
                 className="w-36  rounded-none"
@@ -235,10 +219,6 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <FaUser />
-                  {/* <img
-                    className="sm:w-12  sm:h-12 w-10 h-10"
-                    src={person}
-                    alt="" */}
                 </>
               )}
             </ul>
