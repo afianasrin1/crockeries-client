@@ -5,7 +5,7 @@ import { FiClock } from "react-icons/fi";
 import verifi from "../../Pages/assets/nav&footer/verifi.png";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
-const CrockeriesCard = ({ crockerie, setSelectOrder }) => {
+const CrockeriesCard = ({ crockerie, setSelectOrder, setReported }) => {
   const {
     color,
     location,
@@ -102,8 +102,13 @@ const CrockeriesCard = ({ crockerie, setSelectOrder }) => {
 
         <div className="p-3 pt-4 justify-between items-center flex">
           <div className="flex gap-2">
-            <FaRegHeart className="mt-2 cursor-pointer" />{" "}
-            <GoReport className="mt-2 cursor-pointer" />
+            <FaRegHeart className="mt-2 cursor-pointer" />
+            <label htmlFor="report-modal">
+              <GoReport
+                onClick={() => setReported(crockerie)}
+                className="mt-2 cursor-pointer"
+              />
+            </label>
           </div>
           <p>
             <label

@@ -32,12 +32,12 @@ const Dashboard = () => {
         <div className="drawer-content p-4 ">
           <Outlet />
         </div>
-        <div className="drawer-side ">
+        <div className="drawer-side  ">
           <label
             htmlFor="dashboard-drawer"
             className="drawer-overlay lg:hidden"
           ></label>
-          <ul className="menu   border-r w-80 ">
+          <ul className="menu bg-gray-100 lg:bg-transparent border-r w-80 ">
             <DashboardMenu singleUser={singleUser} />
           </ul>
         </div>
