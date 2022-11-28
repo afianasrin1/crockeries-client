@@ -4,20 +4,46 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const ReportModal = ({ reported, setReported }) => {
   const { user } = useContext(AuthContext);
-  const { name, _id } = reported;
+  const { name, _id, picture: productImage } = reported;
+  console.log(reported);
+  function formatDate(date) {
+    const yyyy = date.getFullYear();
+    let dd = date.getDate() + 1;
+    if (dd < 10) dd = "0" + dd;
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    let strTime = monthNames[date.getMonth()] + "/" + dd + "/" + yyyy;
+    return strTime;
+  }
+  const currentDate = formatDate(new Date());
 
   const handleReport = (event) => {
     event.preventDefault();
     const form = event.target;
     const UserName = form.userName.value;
-    const email = form.email.value;
+    const userEmail = form.email.value;
     const reason = form.reason.value;
     const reporting = {
       productName: name,
       UserName,
-      email,
+      userEmail,
+      userImage: user?.photoURL,
+      productImage,
       reason,
       reportedId: _id,
+      reportDate: currentDate,
     };
     // Send data to the server
     fetch(`${process.env.REACT_APP_ApiUrl}reports`, {

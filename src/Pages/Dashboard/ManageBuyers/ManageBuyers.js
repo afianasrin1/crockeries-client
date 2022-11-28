@@ -16,7 +16,7 @@ const ManageBuyers = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["users/sellers"],
+    queryKey: ["users/sellers", user?.email],
     queryFn: () =>
       fetch(
         `${process.env.REACT_APP_ApiUrl}users/buyers?email=${user?.email}`,

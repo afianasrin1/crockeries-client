@@ -18,7 +18,7 @@ import Home from "../Pages/Home/Home/Home";
 import SignIn from "../Pages/Login/SignIn/SignIn";
 import SignUp from "../Pages/Login/SignUp/Signup";
 import AdminRoute from "./AdminRoute";
-
+import Payment from "../Pages/Dashboard/Payment/Payment";
 import PrivateRouter from "./PrivateRouter";
 import SellerRoute from "./SellerRoute";
 import AboutUs from "../Pages/Home/AboutUs/AboutUs";
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
           ),
       },
       {
-        path: "/singleFurniture/:id",
+        path: "/singleCrockeries/:id",
         element: <SingleCrockeries />,
         loader: async ({ params }) =>
           fetch(`${process.env.REACT_APP_ApiUrl}crockeries/${params.id}`),
@@ -124,6 +124,12 @@ const router = createBrowserRouter([
         ),
       },
       { path: "/dashboard/", element: <MyOrders /> },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment />,
+        loader: async ({ params }) =>
+          fetch(`${process.env.REACT_APP_ApiUrl}singleOrder/${params.id}`),
+      },
       {
         path: "/dashboard/myAllProducts",
         element: (

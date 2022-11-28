@@ -16,7 +16,7 @@ const ManageSellers = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["users/sellers"],
+    queryKey: ["users/sellers", user?.email],
     queryFn: () =>
       fetch(
         `${process.env.REACT_APP_ApiUrl}users/sellers?email=${user?.email}`,
@@ -48,6 +48,23 @@ const ManageSellers = () => {
   };
   const closeModal = () => {
     setRemoveUser(null);
+  };
+
+  const handleVerified = (email) => {
+    setLoading(true);
+    fetch(`${process.env.REACT_APP_ApiUrl}users/${email}`, {
+      method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("access-token")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.acknowledged) {
+          setLoading(false);
+          refetch();
+        }
+      });
   };
   if (isLoading) {
     return <SmallLoader />;
@@ -100,11 +117,17 @@ const ManageSellers = () => {
                     </td>
                     <td>
                       {person?.verified === "true" ? (
-                        <button disabled className="btn border-none btn-sm">
+                        <button disabled className="btn   btn-sm">
                           Verified
                         </button>
                       ) : (
-                        <button></button>
+                        <button
+                          title="Verified Seller"
+                          onClick={() => handleVerified(person?.email)}
+                          className="btn btn-sm"
+                        >
+                          Verified
+                        </button>
                       )}{" "}
                     </td>
                     <td> {person?.role}</td>

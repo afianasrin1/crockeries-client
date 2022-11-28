@@ -17,7 +17,7 @@ const ManageUsers = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["users", user?.email],
     queryFn: () =>
       fetch(`${process.env.REACT_APP_ApiUrl}users?email=${user?.email}`, {
         headers: {

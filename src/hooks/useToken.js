@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const useToken = (email) => {
   const [token, setToken] = useState("");
-  //console.log(email)
+  // console.log(email);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_ApiUrl}jwt?email=${email}`)

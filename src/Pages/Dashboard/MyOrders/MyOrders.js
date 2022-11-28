@@ -16,7 +16,7 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["orders"],
+    queryKey: ["orders", user?.email],
     queryFn: () =>
       fetch(`${process.env.REACT_APP_ApiUrl}orders/${user?.email}`, {
         headers: {
@@ -109,6 +109,7 @@ const MyOrders = () => {
 
                     <td> ${order?.price}</td>
                     <td>
+                      {" "}
                       <label htmlFor="confirm-modal">
                         <BsTrash
                           title="remove product"
@@ -119,9 +120,22 @@ const MyOrders = () => {
                     </td>
                     <td>
                       {" "}
-                      <button className="bg-primary btn btn-sm border-none text-black hover:text-white">
-                        Pay
-                      </button>
+                      {order?.paid === true ? (
+                        <button disabled className="btn btn-sm">
+                          Paid
+                        </button>
+                      ) : (
+                        <div className="flex items-center gap-2">
+                          <p className="italic font-semibold text-sm">
+                            Pending
+                          </p>{" "}
+                          <Link to={`/dashboard/payment/${order._id}`}>
+                            <button className="bg-primary btn btn-sm border-none text-black hover:text-white">
+                              Pay
+                            </button>
+                          </Link>
+                        </div>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -132,7 +146,7 @@ const MyOrders = () => {
             <ConfirmationModal
               successAction={handleRemoveCardProduct}
               closeModal={closeModal}
-              title={`Are you sure product want to delete?`}
+              title={`Are you sure You want to delete?`}
               message={`If you want to delete "${removeCardProduct.productName}". It can't be recover.`}
             />
           )}

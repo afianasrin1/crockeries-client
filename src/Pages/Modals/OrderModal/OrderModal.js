@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import SmallLoader from "../../Shared/Loader/SmallLoader";
 
 const OrderModal = ({ selectOrder, setSelectOrder }) => {
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading, setLoading } = useContext(AuthContext);
   const { name: productName, picture, reSalePrice, _id } = selectOrder;
   function formatDate(date) {
     const yyyy = date.getFullYear();
@@ -30,6 +30,7 @@ const OrderModal = ({ selectOrder, setSelectOrder }) => {
   }
   const currentDate = formatDate(new Date());
   const handleBooking = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const form = e.target;
     const buyerName = form.name.value;
@@ -54,10 +55,21 @@ const OrderModal = ({ selectOrder, setSelectOrder }) => {
       )
       .then((res) => {
         if (res.data.acknowledged) {
+          setLoading(true);
+          axios
+            .put(`${process.env.REACT_APP_ApiUrl}crockeries/${_id}`, {
+              Status: "sold",
+            })
+            .then((res) => {
+              console.log(res);
+              if (res.data?.acknowledged) {
+                setLoading(false);
+              }
+            });
           toast.success("Your order is Confirmed", { duration: 1500 });
           setSelectOrder(null);
-          // refetch()
         } else {
+          setLoading(false);
           toast.error(res.data.message);
         }
       });
@@ -123,7 +135,7 @@ const OrderModal = ({ selectOrder, setSelectOrder }) => {
 
             <button
               type="submit"
-              className="input  btn btn-info text-white uppercase w-full "
+              className="input  btn btn-accent text-white uppercase w-full "
             >
               {" "}
               {loading ? <SmallLoader /> : "Submit"}

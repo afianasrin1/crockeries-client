@@ -42,7 +42,7 @@ const SignUp = () => {
   const signUpWithGoogle = () => {
     continueWithGoogle()
       .then((result) => {
-        toast.success("Sign In Account Successfully", { duration: 2000 });
+        toast.success("Sign in Account Successfully", { duration: 1500 });
         const user = result.user;
         axios
           .post(`${process.env.REACT_APP_ApiUrl}users`, {
@@ -50,6 +50,7 @@ const SignUp = () => {
             email: user?.email,
             picture: user?.photoURL,
             name: user?.displayName,
+            verified: "false",
           })
           .then((res) => {
             if (res.data.acknowledged) {
@@ -92,6 +93,7 @@ const SignUp = () => {
                   role: data.role,
                   picture: image,
                   name: data.name,
+                  verified: "false",
                 })
                 .then((res) => {
                   if (res.data.acknowledged) {
