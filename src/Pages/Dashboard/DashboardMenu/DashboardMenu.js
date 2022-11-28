@@ -30,8 +30,9 @@ const DashboardMenu = ({ singleUser }) => {
         <nav>
           {singleUser.role === "Admin" && (
             <>
+              {/* /dashboard er pore slash silo */}
               <NavLink
-                to="/dashboard/"
+                to="/dashboard"
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center px-4 py-2 mt-1 text-gray-600 transition-colors duration-300 transform bg-white"
@@ -107,7 +108,7 @@ const DashboardMenu = ({ singleUser }) => {
           {singleUser.role === "seller" && (
             <>
               <NavLink
-                to="/dashboard/"
+                to="/dashboard"
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center px-4 py-2 mt-4 text-gray-600 transition-colors duration-300 transform bg-white"
@@ -162,7 +163,7 @@ const DashboardMenu = ({ singleUser }) => {
             <>
               {" "}
               <NavLink
-                to="/dashboard/"
+                to="/dashboard"
                 className={({ isActive }) =>
                   isActive
                     ? "flex items-center px-4 py-2 mt-1 text-gray-600 transition-colors duration-300 transform bg-white"

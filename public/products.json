@@ -16,13 +16,13 @@
   },
   {
     "picture": "https://i.ytimg.com/vi/mVWpOTB3zuc/maxresdefault.jpg",
-    "category": "Plate",
+    "name": "Plate",
     "categoryName": "Plate"
   },
 
   {
     "picture": "https://images.unsplash.com/photo-1582828462913-ff94884827ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
-    "category": "spoon",
+    "name": "spoon",
     "categoryName": "spoon"
   }
 ]

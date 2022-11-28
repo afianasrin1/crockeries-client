@@ -114,7 +114,7 @@ const CrockeriesCard = ({ crockerie, setSelectOrder, setReported }) => {
             <label
               onClick={() => setSelectOrder(crockerie)}
               htmlFor="orderModal"
-              className=" bg-gray-800 py-2 px-3 cursor-pointer text-sm font-medium rounded-lg hover:bg-gray-700"
+              className=" bg-green-500 py-2 px-3 cursor-pointer text-sm font-medium rounded-lg hover:bg-green-700"
             >
               Book Now
             </label>

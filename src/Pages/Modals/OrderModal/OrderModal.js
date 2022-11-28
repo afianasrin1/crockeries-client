@@ -123,7 +123,7 @@ const OrderModal = ({ selectOrder, setSelectOrder }) => {
 
             <button
               type="submit"
-              className="input  btn btn-accent text-white uppercase w-full "
+              className="input  btn btn-info text-white uppercase w-full "
             >
               {" "}
               {loading ? <SmallLoader /> : "Submit"}
