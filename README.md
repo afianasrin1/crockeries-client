@@ -7,13 +7,11 @@
 Crockeries Gallery is a cloud-enabled, mobile-ready
 In this website ReactJS-powered Tailwind Css are used.
 
-- Click On THE LINK
-- Challenge Your MIND
-- ✨Magic ✨
+- Click On THE LINK-https://crockeriesgallery-c395c.web.app
 
 ## Description
 
-You can add your favorite Crockeries products or review and also share with your friends😁!!
+You can add your favorite Crockeries products or review and also share with your friends.
 Dev Goal: Review...
 
 ### Packages:
@@ -45,7 +43,7 @@ Just Click the link -
 
 ## Installation
 
-BengalFurniture requires [Node.js](https://nodejs.org/) , React Js , Router, React-Icons to run.
+Crockeries Gallery requires [Node.js](https://nodejs.org/) , React Js , Router, React-Icons to run.
 
 Install the dependencies and devDependencies and start the server.
 
