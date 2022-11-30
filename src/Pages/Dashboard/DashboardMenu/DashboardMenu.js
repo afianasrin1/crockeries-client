@@ -4,7 +4,7 @@ import { MdReport } from "react-icons/md";
 import { MdManageAccounts } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import verifi from "../../assets/nav&footer/verifi.png";
+import verifyLogo from "../../assets/nav&footer/verifi.png";
 
 const DashboardMenu = ({ singleUser }) => {
   const { user } = useContext(AuthContext);
@@ -22,7 +22,7 @@ const DashboardMenu = ({ singleUser }) => {
             <img
               title="This Seller is Verified"
               className="absolute w-4 h-4   right-3  rounded-full bottom-2"
-              src={verifi}
+              src={verifyLogo}
               alt=""
             />
           )}

@@ -10,6 +10,7 @@ import ManageSellers from "../Pages/Dashboard/ManageSellers/ManageSellers";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import MyAllProducts from "../Pages/Dashboard/MyAllProducts/MyAllProducts";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 import ReportedProducts from "../Pages/Dashboard/ReportedProducts/ReportedProducts";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Crockeries from "../Pages/Crockeries/Crockeries";
@@ -18,7 +19,6 @@ import Home from "../Pages/Home/Home/Home";
 import SignIn from "../Pages/Login/SignIn/SignIn";
 import SignUp from "../Pages/Login/SignUp/Signup";
 import AdminRoute from "./AdminRoute";
-import Payment from "../Pages/Dashboard/Payment/Payment";
 import PrivateRouter from "./PrivateRouter";
 import SellerRoute from "./SellerRoute";
 import AboutUs from "../Pages/Home/AboutUs/AboutUs";
@@ -31,9 +31,8 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/home", element: <Home /> },
-
       {
-        path: "/crockeries/:id",
+        path: "/Crockeries/:id",
         element: (
           <PrivateRouter>
             <Crockeries />
@@ -50,10 +49,9 @@ const router = createBrowserRouter([
         loader: async ({ params }) =>
           fetch(`${process.env.REACT_APP_ApiUrl}crockeries/${params.id}`),
       },
-
       { path: "/blog", element: <Blog /> },
       { path: "/signup", element: <SignUp /> },
-      { path: "/signIn", element: <SignIn /> },
+      { path: "/signin", element: <SignIn /> },
       { path: "/aboutUs", element: <AboutUs /> },
     ],
   },
@@ -71,7 +69,7 @@ const router = createBrowserRouter([
         path: "/dashboard/manageSellers",
         element: (
           <AdminRoute>
-            <ManageSellers />{" "}
+            <ManageSellers />
           </AdminRoute>
         ),
       },
@@ -126,7 +124,11 @@ const router = createBrowserRouter([
       { path: "/dashboard/", element: <MyOrders /> },
       {
         path: "/dashboard/payment/:id",
-        element: <Payment />,
+        element: (
+          <PrivateRouter>
+            <Payment />
+          </PrivateRouter>
+        ),
         loader: async ({ params }) =>
           fetch(`${process.env.REACT_APP_ApiUrl}singleOrder/${params.id}`),
       },

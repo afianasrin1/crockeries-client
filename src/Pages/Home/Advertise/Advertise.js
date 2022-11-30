@@ -4,7 +4,7 @@ import SmallLoader from "../../Shared/Loader/SmallLoader";
 import { FaRegHeart } from "react-icons/fa";
 import { GoReport, GoLocation } from "react-icons/go";
 import { FiClock } from "react-icons/fi";
-import badge from "../../assets/icons/verified.png";
+import badge from "../../assets/nav&footer/verifi.png";
 const Advertise = ({ setSelectOrder }) => {
   const { data: advertise, isLoading } = useQuery({
     queryKey: ["advertiseCrockeries"],
@@ -21,7 +21,7 @@ const Advertise = ({ setSelectOrder }) => {
       {" "}
       {advertise?.length > 0 && (
         <>
-          <h1 className="pb-5 text-3xl font-semibold pl-2 border-t pt-5">
+          <h1 className="pb-5 text-3xl font-semibold pl-2 border-t pt-5 text-center">
             Advertise Products
           </h1>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 mb-12 gap-5">
@@ -141,10 +141,10 @@ const Advertise = ({ setSelectOrder }) => {
                             <div className='p-3 pt-4 justify-between items-center flex'>
                                 <div className='flex gap-2'>
                                     <FaRegHeart className='mt-2 cursor-pointer' />
-                                    <label htmlFor='report-modal'><GoReport onClick={() => setReported(furniture)} className='mt-2 cursor-pointer' /></label>
+                                    <label htmlFor='report-modal'><GoReport onClick={() => setReported(crockerie)} className='mt-2 cursor-pointer' /></label>
 
                                 </div>
-                                <p><label onClick={() => setSelectOrder(furniture)} htmlFor='orderModal' className=' bg-gray-800 py-2 px-3 cursor-pointer text-sm font-medium rounded-lg hover:bg-gray-700'>Book Now</label></p>
+                                <p><label onClick={() => setSelectOrder(crockerie)} htmlFor='orderModal' className=' bg-gray-800 py-2 px-3 cursor-pointer text-sm font-medium rounded-lg hover:bg-gray-700'>Book Now</label></p>
 
                             </div> */}
                 </div>

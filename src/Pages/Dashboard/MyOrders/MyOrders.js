@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
 import SmallLoader from "../../Shared/Loader/SmallLoader";
 import { BsTrash } from "react-icons/bs";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";

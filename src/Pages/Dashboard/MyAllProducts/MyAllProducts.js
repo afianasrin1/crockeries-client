@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
 import SmallLoader from "../../Shared/Loader/SmallLoader";
 import { BsTrash } from "react-icons/bs";
 import { FcAdvertising } from "react-icons/fc";
@@ -18,7 +18,7 @@ const MyAllProducts = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["crockeries/seller"],
+    queryKey: ["crockeries/seller", user?.email],
     queryFn: () =>
       fetch(`${process.env.REACT_APP_ApiUrl}crockeries/seller/${user?.email}`, {
         headers: {
@@ -119,7 +119,7 @@ const MyAllProducts = () => {
                       </div>
                     </td>
                     <td>
-                      <small className="font-semibold">
+                      <small className="font-semibold italic">
                         {" "}
                         {crockerie?.Status}
                       </small>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaRocketchat, FaWhatsapp } from "react-icons/fa";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
 const ContactUs = () => {
   useTitle("Home");
   return (

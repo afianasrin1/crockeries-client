@@ -3,9 +3,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash, FaTimes } from "react-icons/fa";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
 import { useForm } from "react-hook-form";
-import useToken from "../../../hooks/useToken";
+import useToken from "../../../Hooks/useToken";
 import axios from "axios";
 import toast from "react-hot-toast";
 const SignIn = () => {
@@ -25,7 +25,7 @@ const SignIn = () => {
 
   const { continueWithGoogle, setLoading, logInWithEmailAndPassword } =
     useContext(AuthContext);
-  useTitle("Sign In");
+  useTitle("Sign in");
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();

@@ -4,10 +4,10 @@ import { FcGoogle } from "react-icons/fc";
 import { RiImageAddFill } from "react-icons/ri";
 import { FaEye, FaEyeSlash, FaTimes } from "react-icons/fa";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import useToken from "../../../hooks/useToken";
+import useToken from "../../../Hooks/useToken";
 import toast from "react-hot-toast";
 const SignUp = () => {
   const [signUpUserEmail, setSignUpUserEmail] = useState("");
@@ -331,7 +331,7 @@ const SignUp = () => {
                 <p className="text-sm font-light text-gray-500-400">
                   Already have an account?{" "}
                   <Link
-                    to="/signIn"
+                    to="/signin"
                     className="font-medium   hover:underline  "
                   >
                     Login

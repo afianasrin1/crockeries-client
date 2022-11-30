@@ -13,13 +13,12 @@ const Crockeries = () => {
   const [reported, setReported] = useState(null);
   const params = useParams();
   const crockeries = useLoaderData();
-  console.log(crockeries);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_ApiUrl}categories`).then((res) => {
       setCategories(res.data);
     });
-  }, [params?.id]);
+  }, [params]);
   const handleCategory = (category) => {
     setCategory(category);
   };
@@ -33,12 +32,12 @@ const Crockeries = () => {
             to="/"
           >
             Home
-          </Link>
+          </Link>{" "}
           <span>
             <IoIosArrowForward />
-          </span>
+          </span>{" "}
           {/* <span className="hover:border-b border-b border-white hover:border-gray-900  ">
-            {crockeries?.name}
+            {Crockeries[3].name}
           </span> */}
         </p>
         <select
@@ -49,17 +48,16 @@ const Crockeries = () => {
         >
           <option disabled selected>
             Select Category
-          </option>
-
+          </option>{" "}
           {categories?.map((cate) => (
             <option key={cate._id} value={cate?.categoryName}>
               {cate?.name}
             </option>
-          ))}
+          ))}{" "}
         </select>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+      <div className="grid md:grid-cols-2 gap-5">
         {crockeries.map((crockerie) => (
           <CrockeriesCard
             key={crockerie._id}

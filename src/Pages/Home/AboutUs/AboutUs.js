@@ -2,7 +2,7 @@ import React from "react";
 
 import about1 from "../../assets/imgAbout/about1.png";
 import about2 from "../../assets/imgAbout/about2.png";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
 const AboutUs = () => {
   useTitle("AboutUs");
   return (
@@ -19,7 +19,7 @@ const AboutUs = () => {
 
       <div className="lg:flex gap-10">
         <div className="lg:w-1/2 py-4">
-          <h1 className="md:text-justify lg:pt-28 text-xl">
+          <h1 className="md:text-justify lg:pt-8 text-xl">
             {" "}
             The IDEA originated in 2019
           </h1>
@@ -30,12 +30,12 @@ const AboutUs = () => {
           </p>
         </div>
         <div className="lg:w-1/2">
-          <img className="rounded-xl " src={about1} alt="" />
+          <img className="rounded w-32" src={about1} alt="" />
         </div>
       </div>
       <div className="lg:flex gap-10">
         <div className="lg:w-1/2 py-4">
-          <h1 className="md:text-justify lg:pt-28 text-xl">
+          <h1 className="md:text-justify lg:pt-8 text-xl">
             {" "}
             From 1 Room to 2 Office From 3 people to 100 People
           </h1>
@@ -46,7 +46,7 @@ const AboutUs = () => {
           </p>
         </div>
         <div className="lg:w-1/2">
-          <img className="rounded-md " src={about2} alt="" />
+          <img className="rounded w-32" src={about2} alt="" />
         </div>
       </div>
     </div>

@@ -26,10 +26,10 @@ const SingleCrockeries = () => {
           to="/"
         >
           Home
-        </Link>
+        </Link>{" "}
         <span>
           <IoIosArrowForward />
-        </span>
+        </span>{" "}
         <span className="hover:border-b border-b border-white hover:border-gray-900  ">
           {name}
         </span>

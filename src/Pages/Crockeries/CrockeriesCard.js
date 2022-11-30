@@ -2,9 +2,8 @@ import React from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { GoReport, GoLocation } from "react-icons/go";
 import { FiClock } from "react-icons/fi";
-import verifi from "../../Pages/assets/nav&footer/verifi.png";
+import badge from "../../Pages/assets/nav&footer/verifi.png";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-
 const CrockeriesCard = ({ crockerie, setSelectOrder, setReported }) => {
   const {
     color,
@@ -20,6 +19,8 @@ const CrockeriesCard = ({ crockerie, setSelectOrder, setReported }) => {
     sellerImage,
     years_of_use,
     brand,
+    description,
+    condition,
   } = crockerie;
   return (
     <div>
@@ -35,7 +36,7 @@ const CrockeriesCard = ({ crockerie, setSelectOrder, setReported }) => {
           </PhotoView>
         </PhotoProvider>
 
-        <div className="sm:text-[13px] text-[12px] font-semibold">
+        <div className="sm:text-[13px] text-[12px] flex flex-col gap-1 mt-2 font-semibold">
           <div className="flex px-2 justify-between">
             <p className="">
               OriginalPrice:{" "}
@@ -56,8 +57,17 @@ const CrockeriesCard = ({ crockerie, setSelectOrder, setReported }) => {
             </p>
           </div>
           <div className="flex px-2 justify-between">
-            <p>Brand: {brand} </p>
-            <p className="">Color: {color}</p>
+            <p>Brand: {brand ? <small>{brand}</small> : "N/A"} </p>
+            <p className="">Color: {color ? <small>{color}</small> : "N/A"} </p>
+          </div>
+          <div className="flex px-2 justify-between">
+            <p>Condition: {condition ? <small>{condition}</small> : "N/A"} </p>
+          </div>
+          <div className="  px-2 ">
+            <p className="text-justify">
+              <span className="font-bold">Description:</span>{" "}
+              {description ? <small>{description}</small> : "N/A"}{" "}
+            </p>
           </div>
         </div>
 
@@ -75,7 +85,7 @@ const CrockeriesCard = ({ crockerie, setSelectOrder, setReported }) => {
                 <img
                   title="This Seller is Verified"
                   className="absolute w-4 h-4 top-0 -right-1  rounded-full"
-                  src={verifi}
+                  src={badge}
                   alt=""
                 />
               )}
@@ -114,7 +124,7 @@ const CrockeriesCard = ({ crockerie, setSelectOrder, setReported }) => {
             <label
               onClick={() => setSelectOrder(crockerie)}
               htmlFor="orderModal"
-              className=" bg-green-500 py-2 px-3 cursor-pointer text-sm font-medium rounded-lg hover:bg-green-700"
+              className=" bg-pink-300 py-2 px-3 cursor-pointer text-sm font-medium rounded-lg hover:bg-pink-900"
             >
               Book Now
             </label>

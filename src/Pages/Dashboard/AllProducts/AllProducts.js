@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import SmallLoader from "../../Shared/Loader/SmallLoader";
 import { BsTrash } from "react-icons/bs";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
 
 const AllProducts = () => {
   const { user } = useContext(AuthContext);
@@ -16,7 +16,7 @@ const AllProducts = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["crockeries"],
+    queryKey: ["crockeries", user?.email],
     queryFn: () =>
       fetch(`${process.env.REACT_APP_ApiUrl}crockeries`, {
         headers: {
@@ -61,7 +61,8 @@ const AllProducts = () => {
           <thead>
             <tr>
               <th>SL</th>
-              <th>Product</th>
+              <th>Products</th>
+              <th>Status</th>
               <th>Category</th>
               <th> OriginalPrice</th>
               <th>ResalePrice</th>
@@ -93,6 +94,7 @@ const AllProducts = () => {
                     </div>
                   </div>
                 </td>
+                <td> {crockerie?.Status}</td>
                 <td> {crockerie?.categoryName}</td>
                 <td> ${crockerie?.originalPrice}</td>
                 <td> ${crockerie?.reSalePrice}</td>

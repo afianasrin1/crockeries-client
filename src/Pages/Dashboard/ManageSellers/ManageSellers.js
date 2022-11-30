@@ -5,7 +5,8 @@ import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal"
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import SmallLoader from "../../Shared/Loader/SmallLoader";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
+import axios from "axios";
 
 const ManageSellers = () => {
   const { user, setLoading } = useContext(AuthContext);

@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import useTitle from "../../../hooks/useTitle";
+import useTitle from "../../../Hooks/useTitle";
 import Loader from "../../Shared/Loader/Loader";
 
 const AddProduct = () => {
@@ -14,7 +14,7 @@ const AddProduct = () => {
   useTitle("Add Product");
   const navigate = useNavigate();
   const { data: categories, isLoading } = useQuery({
-    queryKey: ["categories"],
+    queryKey: ["categories", user?.email],
     queryFn: () =>
       fetch(`${process.env.REACT_APP_ApiUrl}categories`).then((res) =>
         res.json()
@@ -86,7 +86,6 @@ const AddProduct = () => {
               if (res.data.acknowledged) {
                 navigate("/dashboard/myAllProducts");
                 setLoading(false);
-                console.log(res);
                 toast.success("Product is added successfully.", {
                   duration: 1500,
                 });
@@ -112,9 +111,10 @@ const AddProduct = () => {
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <div>
               <label className="" htmlFor="Name">
-                Name
+                Product Title
               </label>
               <input
+                maxLength="40"
                 id="Name"
                 type="text"
                 placeholder="Product Name"
@@ -190,18 +190,21 @@ const AddProduct = () => {
               <label className="" htmlFor="useOf">
                 Year Of Uses{" "}
               </label>
-              <input
+              <select
                 id="useOf"
                 type="number"
                 placeholder="How many years uses ?"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  dark:text-gray-600 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                 {...register("useOf", {
                   required: "Uses of is required",
-                  maxLength: {
-                    value: 2,
-                  },
                 })}
-              />
+              >
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+              </select>
               {errors.useOf && (
                 <p className="text-red-500 font-semibold flex items-center gap-1 mt-1">
                   <FaTimes /> {errors.useOf?.message}
@@ -245,11 +248,12 @@ const AddProduct = () => {
                 </p>
               )}
             </div>
+
             <div>
               <label className="" htmlFor="condition">
                 Condition{" "}
               </label>
-              <input
+              <select
                 id="condition"
                 placeholder="condition of product"
                 type="text"
@@ -257,7 +261,11 @@ const AddProduct = () => {
                 {...register("condition", {
                   required: "Condition is required",
                 })}
-              />
+              >
+                <option value="Excellent">Excellent</option>
+                <option value="Fear">Fear </option>
+                <option value="Good">Good</option>
+              </select>
               {errors.condition && (
                 <p className="text-red-500 font-semibold flex items-center gap-1 mt-1">
                   <FaTimes /> {errors.condition?.message}
